@@ -5,7 +5,9 @@
 // Реализовать getter range, который будет возвращать массив с двумя числами диапазона
 // Реализовать метод validate, который будет принимать число и проверить входит ли число
 //в указанный диапазон. Метод возвращает значение, если значение валидно. И кинет ошибку, если нет.
-
+/**
+ * Abastact class
+ */
 class NumberValidator {
   /**
    * Prohibits the creation of objects.
@@ -74,20 +76,33 @@ class RangeValidator {
     return true;
   }
 }
-const r = new RangeValidator('345','')
+
 // Создать класс Figure3D
 // Создать классы-потомки для Шара, Цилиндра и Куба.
 // У всех классов должен быть метод для рассчета объема.
 
+/**
+ * Abstract class
+ */
 class Figure3D {
+  /**
+ * Prohibits the creation of objects.
+ * @throws {Error} Throws Error when trying to create an object.
+ */
   constructor(color) {
     this.color = color;
+    if (this.constructor === Figure3D) {
+      throw new Error("Object of Abstract Class cannot be created");
+    }
   }
   set color(color) {
     this._color = color;
   }
   get color() {
     return this._color;
+  }
+  calcVolume() {
+    throw Error('This method must be implemented');
   }
 }
 class Sphere extends Figure3D {
