@@ -6,7 +6,7 @@
 // Реализовать метод validate, который будет принимать число и проверить входит ли число
 //в указанный диапазон. Метод возвращает значение, если значение валидно. И кинет ошибку, если нет.
 /**
- * Abastact class
+ * Abstract class
  */
 class NumberValidator {
   /**
@@ -63,10 +63,10 @@ class RangeValidator {
     return [this.#from, this.#to];
   }
   /**
-   * Checks if a number is in a rangeю
+   * Checks if a number is in a range.
    * @param {number} number 
-   * @returns {boolean} Returns true if the number is in the specified range
-   * @throws {RangeError} Throws an error if the number is not in the specified range
+   * @returns {boolean} Returns true if the number is in the specified range.
+   * @throws {RangeError} Throws an error if the number is not in the specified range.
    */
   validate(number) {
     NumberValidator.isNumber(number);
@@ -101,6 +101,9 @@ class Figure3D {
   get color() {
     return this._color;
   }
+  /**
+   * Abstract method
+   */
   calcVolume() {
     throw Error('This method must be implemented');
   }
