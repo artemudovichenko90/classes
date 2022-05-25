@@ -70,10 +70,13 @@ class RangeValidator {
    */
   validate(number) {
     NumberValidator.isNumber(number);
-    if (number < this.#from || number > this.#to) {
-      throw RangeError(`The number ${this.number} is not in the range between ${this.#from} and ${this.#to}`);
+    if (this.#from < this.#to && number > this.#from && number < this.#to) {
+      return true;
     }
-    return true;
+    if(this.#from > this.#to && number < this.#from && number > this.#to){
+      return true;
+    }
+    throw RangeError(`The number ${number} is not in the range between ${this.#from} and ${this.#to}`);
   }
 }
 
